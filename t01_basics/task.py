@@ -78,7 +78,7 @@ def add(a, b):
 
     # ------ Your Code Here ------
 
-    result = a + b
+
 
     # ------ Your Code Ends ------
     return result
@@ -122,7 +122,7 @@ def mod_ten(number):
 
     # ------ Your Code Here ------
 
-    result = number % 10
+
 
     # ------ Your Code Ends ------
     return result
@@ -140,9 +140,7 @@ def sphere_volume(radius):
 
     # ------ Your Code Here ------
 
-    PI = 3.1415926
-    volume = 4 * PI * (radius ** 3) / 3
-    result = float('%.2f' % volume)
+
 
     # ------ Your Code Ends ------
     return result
@@ -160,7 +158,7 @@ def say_hello(name):
 
     # ------ Your Code Here ------
 
-    result = 'Hello, %s. How are you?' % name
+
 
     # ------ Your Code Ends ------
     return result
@@ -179,8 +177,7 @@ def list_count(item_list):
 
     # ------ Your Code Here ------
 
-    result = item_list
-    result.append(len(item_list) + 1)
+
 
     # ------ Your Code Ends ------
     return result
@@ -206,9 +203,7 @@ def collatz_conjecture_index(number, index):
 
     # ------ Your Code Here ------
 
-    result = number
-    for _i in range(1, index):
-        result = result * 3 + 1 if result % 2 else result / 2
+
 
     # ------ Your Code Ends ------
     return result
@@ -226,10 +221,7 @@ def collatz_conjecture_end(number):
     """
     # ------ Your Code Here ------
 
-    result = 1
-    while number != 1:
-        number = number * 3 + 1 if number % 2 else number / 2
-        result += 1
+
 
     # ------ Your Code Ends ------
     return result
@@ -254,9 +246,7 @@ def dictionary_lookup(dictionary, word):
 
     # ------ Your Code Here ------
 
-    if word in dictionary:
-        return dictionary[word]
-    result = 'Not Found!'
+
 
     # ------ Your Code Ends ------
     return result
@@ -274,27 +264,7 @@ def indescribable_function(param):
 
     # ------ Your Code Here ------
 
-    result = None
-    if param == 1:
-        result = 2
-    elif param == 2:
-        result = 4
-    elif param == 4:
-        result = 7
-    elif param == 7:
-        result = 5
-    elif param == 9:
-        result = 0
-    elif param == 0:
-        result = None
-    elif param == 'Harry':
-        result = 'Harry Potter'
-    elif param == 'Alice':
-        result = 'Bob'
-    elif 'USB' in param['part']:
-        result = ['VGA', 'iPhone']
-    elif 'USB-C' in param['part']:
-        result = 'Apple'
+
 
     # ------ Your Code Ends ------
     return result
@@ -318,8 +288,7 @@ def judge_scores(score_list):
 
     # ------ Your Code Here ------
 
-    score_list.sort()
-    result = score_list[1:-1]
+
 
     # ------ Your Code Ends ------
     return result
@@ -338,11 +307,7 @@ def gcd(a, b):
 
     # ------ Your Code Here ------
 
-    if a < b:
-        a, b = b, a
-    while b != 0:
-        a, b = b, a % b
-    result = a
+
 
     # ------ Your Code Ends ------
     return result
@@ -363,8 +328,7 @@ class Book:
 
     # ------ Your Code Here ------
 
-    def is_written_by(self, author):
-        return self.author == author
+
 
     # ------ Your Code Ends ------
 

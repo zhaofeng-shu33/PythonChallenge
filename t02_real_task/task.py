@@ -88,9 +88,7 @@ def get_names(packet):
 
     # ------ Your Code Here ------
 
-    result = {
-        'names': [person['name'] for person in packet['students']],
-    }
+
 
     # ------ Your Code Ends ------
     return result
@@ -123,12 +121,7 @@ def filter_age(packet, valid_age):
 
     # ------ Your Code Here ------
 
-    result = {
-        'className': packet['className'],
-        'students': [s for s in packet['students'] if s['age'] >= valid_age],
-    }
-    result['students'].sort(key=lambda s: [-s['age'], s['name']])
-    result['valid_count'] = len(result['students'])
+
 
     # ------ Your Code Ends ------
     return result
