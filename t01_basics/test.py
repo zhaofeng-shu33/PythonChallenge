@@ -75,5 +75,133 @@ class TestListCount(unittest.TestCase):
         )
 
     def test_list_count_02(self):
+        self.assertEqual(
+            list_count([2, None, {'5': 9}, 'Je']),
+            [2, None, {'5': 9}, 'Je', 5]
+        )
+
+    def test_list_count_03(self):
         self.assertEqual(list_count([]), [1])
 
+
+class TestCollatzConjectureIndex(unittest.TestCase):
+    def test_collatz_conjecture_index_01(self):
+        self.assertEqual(collatz_conjecture_index(5, 3), 8)
+
+    def test_collatz_conjecture_index_02(self):
+        self.assertEqual(collatz_conjecture_index(18, 1), 18)
+
+    def test_collatz_conjecture_index_03(self):
+        self.assertEqual(collatz_conjecture_index(355, 1234), 4)
+
+
+class TestCollatzConjectureEnd(unittest.TestCase):
+    def test_collatz_conjecture_end_01(self):
+        self.assertEqual(collatz_conjecture_end(5), 6)
+
+    def test_collatz_conjecture_end_02(self):
+        self.assertEqual(collatz_conjecture_end(355), 33)
+
+    def test_collatz_conjecture_end_03(self):
+        self.assertEqual(collatz_conjecture_end(1), 1)
+
+
+class TestIndescribableFunction(unittest.TestCase):
+    def test_indescribable_function_01(self):
+        self.assertEqual(indescribable_function(1), 2)
+
+    def test_indescribable_function_02(self):
+        self.assertEqual(indescribable_function(2), 4)
+
+    def test_indescribable_function_03(self):
+        self.assertEqual(indescribable_function(4), 7)
+
+    def test_indescribable_function_04(self):
+        self.assertEqual(indescribable_function(7), 5)
+
+    def test_indescribable_function_05(self):
+        self.assertEqual(indescribable_function(9), 0)
+
+    def test_indescribable_function_06(self):
+        self.assertEqual(indescribable_function(0), None)
+
+    def test_indescribable_function_07(self):
+        self.assertEqual(indescribable_function('Harry'), 'Harry Potter')
+
+    def test_indescribable_function_08(self):
+        self.assertEqual(indescribable_function('Alice'), 'Bob')
+
+    def test_indescribable_function_09(self):
+        self.assertEqual(indescribable_function({
+            'type': 'B',
+            'part': ('USB', 'VGA', 'iPhone'),
+        }), ['VGA', 'iPhone'])
+
+    def test_indescribable_function_10(self):
+        self.assertEqual(indescribable_function({
+            'type': 'B',
+            'part': ('USB-C', 'VGA', 'iPhone'),
+        }), 'Apple')
+
+
+class TestDictionaryLookup(unittest.TestCase):
+    def setUp(self):
+        self.dictionary = {
+            'banana': 'A yellow fruit, grown in Singapore.',
+            'missing': 'Not Found!',
+            'tomato': 'A red vegetable, sour.',
+        }
+
+    def test_dictionary_lookup_01(self):
+        self.assertEqual(
+            dictionary_lookup(self.dictionary, 'banana'),
+            'A yellow fruit, grown in Singapore.'
+        )
+
+    def test_dictionary_lookup_02(self):
+        self.assertEqual(
+            dictionary_lookup(self.dictionary, 'missing'),
+            'Not Found!'
+        )
+
+    def test_dictionary_lookup_03(self):
+        self.assertEqual(
+            dictionary_lookup(self.dictionary, 'apple'),
+            'Not Found!'
+        )
+
+    def tearDown(self):
+        self.dictionary = None
+
+
+class TestJudgeScores(unittest.TestCase):
+    def test_judge_scores_01(self):
+        self.assertEqual(
+            judge_scores([95.8, 80.9, 96.2, 93.7, 100.0, 95.6]),
+            [93.7, 95.6, 95.8, 96.2]
+        )
+
+    def test_judge_scores_02(self):
+        self.assertEqual(judge_scores([7, 5, 6]), [6])
+
+
+class TestGCD(unittest.TestCase):
+    def test_gcd_01(self):
+        self.assertEqual(gcd(12, 18), 6)
+
+    def test_gcd_02(self):
+        self.assertEqual(gcd(37, 59), 1)
+
+    def test_gcd_03(self):
+        self.assertEqual(gcd(20171014, 12345678), 2)
+
+
+class TestCheckBookAuthor(unittest.TestCase):
+    def setUp(self):
+        self.book = Book('Harry Potter', 'J.K. Rowling', 1997)
+
+    def test_check_book_author_01(self):
+        self.assertEqual(check_book_author(self.book, 'J.K. Rowling'), True)
+
+    def test_check_book_author_02(self):
+        self.assertEqual(check_book_author(self.book, 'J.P. Rowling'), False)

@@ -86,8 +86,8 @@ def add(a, b):
 
 """
 If you have correctly filled the missing part above, and run PyUnit test now, 
-you will find that the first nine marks in the first output line turns `.` from 
-`F`. This means you have passed the first nine tests of the project. Why nine? 
+you will find that nine marks in the first output line has turned `.` from `F`. 
+This means you have passed the first nine tests of the project. Why nine? 
 Because we wrote nine tests for this function alone.  
 
 You can find the tests in `test.py` in the same folder. The Class `TestAdd` is
@@ -150,8 +150,8 @@ def sphere_volume(radius):
 
 def say_hello(name):
     """
-    You saw a friend on yor way home. Say hello to him, calling his name.
-    That means, you should return the following string.
+    You saw a friend on yor way home. Say hello to him, calling his name. That
+    means, you should return a string in the following format.
 
     :param name: valid string, 'Alice'
     :return: 'Hello, Alice. How are you?'
@@ -186,50 +186,209 @@ def list_count(item_list):
     return result
 
 
-"""
-条件判断 if (odd *3+1 even /2)  for
-循环 while
-莫名其妙的函数（看 test 来写）
-dict set
-递归函数
-list [-4:]
-class
-try-catch
-"""
+def collatz_conjecture_index(number, index):
+    """
+    The famous Collatz Conjecture points out that, with any given positive
+    integer, we do the following operations continuously:
 
+    - if the number is odd, three times the number then add one
+    - if the number is even, divide the number by two
 
-def gauss_problem():
+    And at last, the sequence will always reach one.
+    We give you a number, whose index is one, and we would like to know what the
+    number would become at any given index.
+
+    :param number: positive integer, 5
+    :param index: positive integer, 3
+    :return: 8
+
     """
 
+    # ------ Your Code Here ------
 
-    :return:
+    result = number
+    for _i in range(1, index):
+        result = result * 3 + 1 if result % 2 else result / 2
+
+    # ------ Your Code Ends ------
+    return result
+
+
+def collatz_conjecture_end(number):
+    """
+    Still the Collatz Conjecture, but this time we would like to know, for a
+    given positive integer, what index it would be when the sequence finally
+    reaches one.
+
+    :param number: positive integer, 5
+    :return: 6
+
+    """
+    # ------ Your Code Here ------
+
+    result = 1
+    while number != 1:
+        number = number * 3 + 1 if number % 2 else number / 2
+        result += 1
+
+    # ------ Your Code Ends ------
+    return result
+
+
+def dictionary_lookup(dictionary, word):
+    """
+    The English Dictionary has so many words, their explanations and usages.
+    Tom is hurrying for a class, so he left you the job: find the meaning of any
+    given word. If the word is not in the dictionary, return 'Not Found!'.
+
+    :param dictionary one-level python-dict format, each (k, v) pair is consist
+                      of a word ant its explanation. Example:
+                      {
+                          'banana': 'A yellow fruit, grown in Singapore.',
+                          'tomato': 'A red vegetable, sour.',
+                      }
+    :param word: valid string, 'banana'
+    :return: 'A yellow fruit, grown in Singapore.'
 
     """
 
-    return
+    # ------ Your Code Here ------
+
+    if word in dictionary:
+        return dictionary[word]
+    result = 'Not Found!'
+
+    # ------ Your Code Ends ------
+    return result
+
+
+def indescribable_function(param):
+    """
+    The project designer became insanity, and he wrote this indescribable
+    function. There is one input, no helping, and even no output declaration.
+    Still, you have to make the function match every given single test case.
+
+    :return: ???
+
+    """
+
+    # ------ Your Code Here ------
+
+    result = None
+    if param == 1:
+        result = 2
+    elif param == 2:
+        result = 4
+    elif param == 4:
+        result = 7
+    elif param == 7:
+        result = 5
+    elif param == 9:
+        result = 0
+    elif param == 0:
+        result = None
+    elif param == 'Harry':
+        result = 'Harry Potter'
+    elif param == 'Alice':
+        result = 'Bob'
+    elif 'USB' in param['part']:
+        result = ['VGA', 'iPhone']
+    elif 'USB-C' in param['part']:
+        result = 'Apple'
+
+    # ------ Your Code Ends ------
+    return result
+
+
+def judge_scores(score_list):
+    """
+    As we all know, in a contest where scores are given by judges, when
+    calculating the final score of any player, the highest score and the lowest
+    score are not used. The summation function is written, and we need your help
+    to find out what scores are to be used later in summing.
+
+    Please return a score list without the highest and the lowest scores,
+    ascending by score.
+
+    :param score_list: valid python-list with more than two scores, each unique
+                       Example: [95.8, 80.9, 96.2, 93.7, 100.0, 95.6]
+    :return: [93.7, 95.6, 95.8, 96.2]
+
+    """
+
+    # ------ Your Code Here ------
+
+    score_list.sort()
+    result = score_list[1:-1]
+
+    # ------ Your Code Ends ------
+    return result
 
 
 def gcd(a, b):
     """
+    The Greatest Common Divisor is very useful in many math-related problems.
+    Please find out the GCD of given positive integers `a` and `b`.
 
-    :param a:
-    :param b:
-    :return:
+    :param a: positive integer, 12
+    :param b: positive integer, 18
+    :return: 6
+
     """
 
-    return
+    # ------ Your Code Here ------
+
+    if a < b:
+        a, b = b, a
+    while b != 0:
+        a, b = b, a % b
+    result = a
+
+    # ------ Your Code Ends ------
+    return result
 
 
+class Book:
+    """
+    Each Book has an author and a publish year. We would like to check whether a
+    book is written by a specific author. Please complete the `Book` class so
+    that the following function `check_book_author` works properly.
+
+    """
+
+    def __init__(self, name, author, year):
+        self.name = name
+        self.author = author
+        self.year = year
+
+    # ------ Your Code Here ------
+
+    def is_written_by(self, author):
+        return self.author == author
+
+    # ------ Your Code Ends ------
+
+    def is_written_later(self, year):
+        return self.year >= year
 
 
+def check_book_author(book, author):
+    """
+    The function checks whether a book is written by a specific author.
 
+    :param book: a `Book` class object, Book('Name', 'Author', 2017)
+    :param author: valid string, 'Author'
+    :return: boolean value `True`
 
+    """
 
+    return book.is_written_by(author)
 
 
 """
-Congratulations! You have finished the basic challenge.
+Congratulations! You have finished the basic challenge!
 
-Now that you are digging deep into the hole, and try some real tasks!
+Now that you are digging deep into the hole, and try some real tasks! You can 
+find them in t02_real_task package. 
 
 """

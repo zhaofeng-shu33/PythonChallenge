@@ -6,5 +6,6 @@
 from t01_basics.test import *
 from t02_real_task.test import *
 
+
 if __name__ == '__main__':
     unittest.main()

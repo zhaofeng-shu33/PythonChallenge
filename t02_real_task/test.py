@@ -78,3 +78,6 @@ class TestDataOperation(unittest.TestCase):
             }],
         }
         self.assertEqual(filter_age(self.packet, 20), result)
+
+    def tearDown(self):
+        self.packet = None
